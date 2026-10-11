@@ -1,0 +1,638 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Finnish Midterm Plan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: sticky section nav on top, single reading column (max 960px), cards only for day plans and drills */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#13202b; --muted:#566673; --line:#d9e1e4;
+  --accent:#1c5da6; --accent-soft:#e3eefa; --hot:#c0392b; --ok:#2f7d4f; --ok-soft:#e2f2e8;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1820; --surface:#16232d; --fg:#e7eef2; --muted:#9db0bc; --line:#2a3b47;
+  --accent:#6db1f0; --accent-soft:#183247; --hot:#ff8a7a; --ok:#6fd39a; --ok-soft:#173326; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1820; --surface:#16232d; --fg:#e7eef2; --muted:#9db0bc; --line:#2a3b47;
+  --accent:#6db1f0; --accent-soft:#183247; --hot:#ff8a7a; --ok:#6fd39a; --ok-soft:#173326; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.55}
+*{box-sizing:border-box}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 64px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.7rem;font-weight:700;margin-bottom:6px}
+h3{font-size:1.1rem;font-weight:700;margin:22px 0 8px}
+p{margin:.5em 0;max-width:68ch}
+.fi,code{font-family:var(--f-mono);font-size:.92em}
+.e{color:var(--hot);font-weight:600}
+.muted{color:var(--muted)}
+.lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600;color:var(--muted)}
+section{padding-top:48px;scroll-margin-top:60px}
+header.hero{padding-block:40px 8px;display:grid;gap:14px}
+.hero p{font-size:1.1rem}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .in{max-width:960px;margin:0 auto;padding:10px 16px;display:flex;gap:6px;overflow-x:auto;align-items:center}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--fg);padding:6px 11px;border-radius:6px;font-size:.92rem;font-weight:600}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft);outline:none}
+.prog{display:flex;align-items:center;gap:12px;margin-top:8px}
+.bar{flex:1;height:10px;background:var(--line);border-radius:5px;overflow:hidden;max-width:420px}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+table{border-collapse:collapse;width:100%;font-size:.97rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tw{overflow-x:auto;margin-block:10px}
+.tw table{min-width:520px}
+.pri{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.pri.hi{background:var(--hot);color:var(--surface)}
+.days{display:grid;gap:16px;margin-top:16px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 14px;min-width:0}
+.day header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;align-items:baseline;margin-bottom:6px}
+.day h3{margin:0;font-size:1.25rem}
+.day .goal{margin:0 0 10px;color:var(--muted)}
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:5px 0;cursor:pointer}
+.chk input{margin-top:5px;width:18px;height:18px;flex:none;accent-color:var(--ok)}
+.chk input:checked+span{color:var(--muted);text-decoration:line-through}
+.task{border-top:1px solid var(--line);padding-top:4px}.task:first-child{border-top:0}
+.learn{margin:2px 0 8px 28px;background:var(--bg)}
+.learn summary{font-size:.9rem;color:var(--accent);padding:6px 0}
+.lc{padding-bottom:10px}.lc p{margin:.4em 0;max-width:none}.lc .vid{color:var(--muted);font-size:.92rem}
+.lc .tw table{min-width:440px;font-size:.88rem}
+.subs{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:2px}
+.subs label{display:flex;gap:10px;align-items:flex-start;padding:4px 0;cursor:pointer;font-size:.95rem}
+.subs input{margin-top:4px;width:17px;height:17px;flex:none;accent-color:var(--ok)}
+.subs input:checked+span{color:var(--muted);text-decoration:line-through}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.grid2>*{min-width:0}
+.box{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin-block:12px}
+.box.warn{border-color:var(--hot)}
+.box p{margin:.3em 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-block:8px}
+.chips span{border:1px solid var(--line);background:var(--surface);padding:3px 10px;border-radius:99px;font-family:var(--f-mono);font-size:.88rem}
+details{border:1px solid var(--line);background:var(--surface);border-radius:8px;margin-block:8px;padding:0 14px}
+summary{cursor:pointer;padding:10px 0;font-weight:600}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details .ans{padding-bottom:10px}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin-block:12px}
+.tool input[type=text]{font:inherit;font-family:var(--f-mono);padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:min(100%,260px)}
+.tool button{font:inherit;font-weight:600;padding:8px 14px;border-radius:6px;border:0;background:var(--accent);color:var(--bg);cursor:pointer;margin-left:6px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.quiz{display:grid;gap:8px}
+.q{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line)}
+.q input{font:inherit;font-family:var(--f-mono);padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:min(100%,260px)}
+.q .r{font-weight:700}
+.q .r.ok{color:var(--ok)} .q .r.no{color:var(--hot)}
+footer{margin-top:56px;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<nav class="nav"><div class="in">
+  <a href="#map">Exam map</a><a href="#plan">7-day plan</a><a href="#ref">Cheat sheets</a><a href="#book">Book extras</a><a href="#intro">Introduce yourself</a><a href="#mock">Mock exam answers</a><a href="#tips">Exam day</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <span class="lbl">Turun yliopisto · Finnish for beginners · Chapters 1–2</span>
+  <h1>Finnish midterm: one week, start to finish</h1>
+  <p>Built from your slide and the mock exam, then cross-checked against Suomen mestari 1, chapters 1 and 2 (version 2: spelling of numbers, letter names, question words, countries and extra phrases now follow the book). Pass mark is 50% of the maximum points. The “introduce yourself” task is probably the biggest single exercise, so it gets practice on three separate days.</p>
+  <div class="prog"><div class="bar" aria-hidden="true"><i id="barfill"></i></div><span id="progtxt" class="muted">Loading progress</span></div>
+</header>
+
+<section id="map">
+  <h2>What the exam covers</h2>
+  <p>Every exercise type from your sample sheets, matched to the topic that earns the points.</p>
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>Exercise</th><th>What you must know</th><th>Priority</th></tr></thead>
+    <tbody>
+    <tr><td>1</td><td>Greetings and phrases: what do you reply?</td><td>Fixed phrases and their replies</td><td><span class="pri">Medium</span></td></tr>
+    <tr><td>2</td><td>Vowel harmony: a or ä?</td><td>Back, front and neutral vowels</td><td><span class="pri">Medium</span></td></tr>
+    <tr><td>3</td><td>Numbers written in letters</td><td>0–10, teens, tens, hundreds, thousands</td><td><span class="pri">Medium</span></td></tr>
+    <tr><td>4</td><td>Write a dialogue (A and B, with answers)</td><td>Greeting, “how are you”, name, origin, language</td><td><span class="pri hi">High</span></td></tr>
+    <tr><td>5</td><td>Conjugate verbs (ostaa, asua, istua; positive and negative)</td><td>Verb type 1, all six persons, negation</td><td><span class="pri hi">High</span></td></tr>
+    <tr><td>6</td><td>Make 4 questions, each question word once</td><td>kuka, kuinka, milloin, mihin, missä, miksi</td><td><span class="pri">Medium</span></td></tr>
+    <tr><td>7</td><td>Introduce yourself in 5 sentences</td><td>Name, age, origin, language, where you live, study</td><td><span class="pri hi">Highest</span></td></tr>
+    <tr><td>8</td><td>Listening: spelling names, short sentences</td><td>Finnish letter names, days, numbers</td><td><span class="pri hi">High</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">Also on your slide: vowel harmony rules, the verb <em>olla</em> (to be) positive and negative, person pronouns, days of the week, nationality words, names of languages and countries. The slide says questions are similar to the book’s exercises, so redo the book exercises from chapters 1–2 as well.</p>
+</section>
+
+<section id="plan">
+  <h2>7-day plan</h2>
+  <p>About 90 to 120 minutes a day. Say every Finnish word out loud and write every answer by hand; the exam is on paper. Open “Learn this” under each task for the material and step-by-step checkpoints. Tick the checkpoints; a task ticks itself when all its checkpoints are done. Your ticks are saved in this browser.</p>
+  <div class="days" id="days"></div>
+</section>
+
+<section id="ref">
+  <h2>Cheat sheets</h2>
+
+  <h3>1. Greetings and phrases</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Someone says</th><th>You reply</th><th>Meaning</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">Hyvää päivää!</td><td class="fi">Hyvää päivää!</td><td>Good day (formal hello)</td></tr>
+    <tr><td class="fi">Anteeksi!</td><td class="fi">Ei se mitään. / Ei haittaa.</td><td>Sorry / excuse me → It’s nothing</td></tr>
+    <tr><td class="fi">Hauska tutustua!</td><td class="fi">Hauska tutustua! / Samoin!</td><td>Nice to meet you → Likewise</td></tr>
+    <tr><td class="fi">Tässä on Maria.</td><td class="fi">Hei, Maria! Hauska tutustua!</td><td>This is Maria.</td></tr>
+    <tr><td class="fi">Terve!</td><td class="fi">Terve! / Hei! / Moi!</td><td>Hi</td></tr>
+    <tr><td class="fi">Mitä kuuluu?</td><td class="fi">Hyvää, kiitos. Entä sinulle?</td><td>How are you? → Good, thanks. And you?</td></tr>
+    <tr><td class="fi">Kiitos!</td><td class="fi">Ole hyvä!</td><td>Thanks → You’re welcome</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lbl">Hello and goodbye (book, chapter 1)</p>
+  <div class="chips"><span>Hei</span><span>Moi</span><span>Terve</span><span>Moikka</span><span>Huomenta / Hyvää huomenta</span><span>Päivää / Hyvää päivää</span><span>Iltaa / Hyvää iltaa</span><span>Hyvää yötä! Nuku hyvin!</span><span>Tervetuloa!</span><span>Näkemiin</span><span>Hei hei</span><span>Moi moi</span><span>Heippa</span><span>Nähdään</span><span>Nähdään huomenna</span></div>
+  <p class="lbl">Thanks, yes/no, table manners</p>
+  <div class="chips"><span>Kiitos</span><span>Kiitos samoin</span><span>Ole hyvä</span><span>Ei kestä</span><span>Anteeksi → Ei se mitään</span><span>Kyllä / Joo</span><span>Ei</span><span>Kippis / Skool</span><span>Hyvää ruokahalua!</span><span>Kiitos ruoasta</span><span>Kiitos, oli hyvää</span></div>
+  <p class="lbl">Classroom dialogue phrases (book, “Hei ja tervetuloa!”)</p>
+  <div class="tw"><table>
+    <thead><tr><th>Finnish</th><th>Meaning</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">Onko täällä suomen kurssi? Joo, on.</td><td>Is the Finnish course here? Yes, it is.</td></tr>
+    <tr><td class="fi">Onko tämä paikka vapaa? On.</td><td>Is this seat free? Yes.</td></tr>
+    <tr><td class="fi">Kuka sinä olet? Minä olen Olga.</td><td>Who are you? I am Olga.</td></tr>
+    <tr><td class="fi">Minun nimi on Alex.</td><td>My name is Alex.</td></tr>
+    <tr><td class="fi">Mitä kuuluu? / Mitä sinulle kuuluu?</td><td>How are you?</td></tr>
+    <tr><td class="fi">Minulle kuuluu hyvää. / Ihan hyvää, kiitos. Entä sinulle?</td><td>I’m fine. / Quite good, thanks. And you?</td></tr>
+    <tr><td class="fi">Tässä on Pedro.</td><td>This is Pedro.</td></tr>
+    <tr><td class="fi">Anteeksi, miten se kirjoitetaan? Se kirjoitetaan P-Ä-I-V-I.</td><td>Excuse me, how is it spelled?</td></tr>
+    <tr><td class="fi">etunimi, sukunimi, opettaja, kurssipäivä, kello 18–20</td><td>first name, surname, teacher, course day, 18–20 o’clock</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2. Alphabet and pronunciation (for the listening task)</h3>
+  <p>Finnish is spelled as it sounds. Stress is always on the first syllable. Doubled letters are long sounds, so <span class="fi">tuli</span> and <span class="fi">tulli</span> are different words. When the teacher spells a name, write down each letter as you hear it, and listen for a doubled letter.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Letters and how Finns say them</th></tr></thead>
+    <tbody><tr><td class="fi" style="line-height:2">A (aa) · B (bee) · C (see) · D (dee) · E (ee) · F (äf) · G (gee) · H (<b>hoo</b>) · I (ii) · J (jii) · K (<b>koo</b>) · L (äl) · M (äm) · N (än) · O (oo) · P (pee) · Q (<b>kuu</b>) · R (är) · S (äs) · T (tee) · U (uu) · V (vee) · W (kaksois-vee) · X (äks) · Y (yy) · Z (tseta) · Å (ruotsalainen oo) · Ä (ää) · Ö (öö)</td></tr></tbody>
+  </table></div>
+  <div class="box"><p>Easy to confuse: <b>H = hoo</b>, <b>K = koo</b>, <b>Q = kuu</b>, <b>Y</b> sounds like German ü, <b>Ä</b> like the a in “cat”, <b>Ö</b> like the u in “fur”. R is rolled.</p>
+  <p><b>Short and long sounds (book, ch. 1–2):</b> every vowel can be short or long (<span class="fi">tuli – tuuli, tili – tiili, sana – saana</span>), and so can many consonants (<span class="fi">kisa – kissa, tuli – tulli, kuka – kukka, tapa – tappa, kylä – kyllä</span>). Long = written double. The listening task may test this, so write double letters exactly as you hear them. Letters b, c, f, g, w, x, z, q appear only in foreign words (<span class="fi">banaani, pizza, Lindqvist</span>).</p></div>
+
+  <h3>3. Vowel harmony (vokaaliharmonia)</h3>
+  <div class="grid2">
+    <div><p class="lbl">Back vowels</p><div class="chips"><span>a</span><span>o</span><span>u</span></div><p>Endings use <b class="fi">a</b>.</p></div>
+    <div><p class="lbl">Front vowels</p><div class="chips"><span>ä</span><span>ö</span><span>y</span></div><p>Endings use <b class="fi">ä</b>.</p></div>
+  </div>
+  <p><b>Neutral:</b> <span class="fi">e, i</span>. They go with either group. If a word has only e and i, use <b class="fi">ä</b> (tiikeri → tiikeri<span class="e">ä</span>).</p>
+  <div class="box"><p><b>Rule:</b> look at the whole word. If it has any back vowel (a, o, u), the ending is <b>a</b>. Otherwise, if it has ä, ö or y, the ending is <b>ä</b>. Only e/i: <b>ä</b>. Compound words follow the last part.</p></div>
+  <p><b>From the book:</b> back words take <span class="fi">-ssa, -vat, -ko</span> (<span class="fi">autossa, tutustuvat, kurssiko</span>); front words take <span class="fi">-ssä, -vät, -kö</span> (<span class="fi">hyvässä, säästävät, kielikö</span>). Words with only <span class="fi">e, i</span> (<span class="fi">tie, kieli</span>) follow the front pattern (<span class="fi">kielikö</span>); a word like <span class="fi">anteeksi</span> or <span class="fi">kurssi</span> with e/i plus a back vowel follows the back pattern. Compound words follow their <b>last</b> part: <span class="fi">suklaajäätelö → suklaajäätelössä</span>, <span class="fi">jäätelökioski → jäätelökioskilla</span>.</p>
+  <p><b>Worked examples from the mock exam:</b> Egypt<span class="fi">istä</span> (y), Turk<span class="fi">ua</span> (u), jäätelö<span class="fi">ä</span> (ä, ö), kreikk<span class="fi">aa</span> (a), tiikeri<span class="fi">ä</span> (only e, i).</p>
+
+  <h3>4. Numbers</h3>
+  <div class="tw"><table>
+    <thead><tr><th>0–10</th><th>11–19</th><th>Tens</th><th>Big</th></tr></thead>
+    <tbody><tr>
+      <td class="fi">0 nolla<br>1 yksi<br>2 kaksi<br>3 kolme<br>4 neljä<br>5 viisi<br>6 kuusi<br>7 seitsemän<br>8 kahdeksan<br>9 yhdeksän<br>10 kymmenen</td>
+      <td class="fi">11 yksi<span class="e">toista</span><br>12 kaksi<span class="e">toista</span><br>13 kolme<span class="e">toista</span><br>14 neljä<span class="e">toista</span><br>15 viisi<span class="e">toista</span><br>16 kuusi<span class="e">toista</span><br>17 seitsemän<span class="e">toista</span><br>18 kahdeksan<span class="e">toista</span><br>19 yhdeksän<span class="e">toista</span></td>
+      <td class="fi">20 kaksi<span class="e">kymmentä</span><br>30 kolme<span class="e">kymmentä</span><br>40 neljä<span class="e">kymmentä</span><br>50 viisi<span class="e">kymmentä</span><br>60 kuusi<span class="e">kymmentä</span><br>70 seitsemän<span class="e">kymmentä</span><br>80 kahdeksan<span class="e">kymmentä</span><br>90 yhdeksän<span class="e">kymmentä</span></td>
+      <td class="fi">100 sata<br>200 kaksi<span class="e">sataa</span><br>1000 tuhat<br>2000 kaksi<span class="e">tuhatta</span></td>
+    </tr></tbody>
+  </table></div>
+  <p>Build bigger numbers by joining pieces into one word, biggest first. Hundreds use <span class="fi">sataa</span> and thousands use <span class="fi">tuhatta</span> after 2 or more.</p>
+  <div class="box"><p><b>Mock exam answers:</b><br>
+  1 = <span class="fi">yksi</span><br>
+  430 = <span class="fi">neljäsataakolmekymmentä</span><br>
+  1968 = <span class="fi">tuhatyhdeksänsataakuusikymmentäkahdeksan</span><br>
+  57 = <span class="fi">viisikymmentäseitsemän</span><br>
+  2994 = <span class="fi">kaksituhattayhdeksänsataayhdeksänkymmentäneljä</span></p>
+  <p class="muted">Your book writes each number as one long word (for example 500 000 = <span class="fi">viisisataatuhatta</span>), so write it that way.</p></div>
+  <p><b>More from the book:</b> 21 = <span class="fi">kaksikymmentäyksi</span>, 22 = <span class="fi">kaksikymmentäkaksi</span>, 101 = <span class="fi">satayksi</span>, 1 000 000 = <span class="fi">miljoona</span> (2 000 000 = <span class="fi">kaksi miljoonaa</span>), 1 000 000 000 = <span class="fi">miljardi</span>. Age: <span class="fi">Kuinka vanha sinä olet? Minä olen 23 vuotta vanha.</span></p>
+  <p class="muted">Spoken numbers (chapter 2, “Puhutaan”) differ: <span class="fi">yks, kaks, kolme, neljä, viis, kuus, seittemän, kahdeksan, yheksän, kymmenen, ykstoist, kakstoist, kakskyt, kolkyt, nelkyt, viiskyt, kuuskyt, seiskyt, kaheksankyt, yheksänkyt, sata</span>. The slide only asks for written numbers, so treat these as optional.</p>
+
+  <h3>5. Days of the week</h3>
+  <div class="chips"><span>maanantai</span><span>tiistai</span><span>keskiviikko</span><span>torstai</span><span>perjantai</span><span>lauantai</span><span>sunnuntai</span></div>
+  <p>Written with a small letter. “On Monday” adds <span class="fi">-na</span>: <span class="fi">maanantai<b class="e">na</b></span>, <span class="fi">tiistai<b class="e">na</b></span>, <span class="fi">keskiviikko<b class="e">na</b></span>, <span class="fi">viikonloppu<b class="e">na</b></span>. Short forms: ma, ti, ke, to, pe, la, su. Weekend: <span class="fi">viikonloppu</span> (la ja su).</p>
+  <p><b>Questions:</b> <span class="fi">Mikä päivä tänään on? Tänään on tiistai.</span> · <span class="fi">Milloin kurssi on? Kurssi on maanantaina.</span> · <span class="fi">Hauskaa viikonloppua!</span></p>
+  <div class="chips"><span>toissapäivänä (day before yesterday)</span><span>eilen (yesterday)</span><span>tänään (today)</span><span>huomenna (tomorrow)</span><span>ylihuomenna (day after tomorrow)</span></div>
+  <p class="fi">Huomenna on sunnuntai. → Tänään on lauantai. Eilen oli perjantai. Ylihuomenna on maanantai.</p>
+
+  <h3>6. Pronouns and the verb <em>olla</em> (to be)</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Pronoun</th><th>Positive</th><th>Negative</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">minä (I)</td><td class="fi">minä ole<span class="e">n</span></td><td class="fi">minä <span class="e">en</span> ole</td></tr>
+    <tr><td class="fi">sinä (you)</td><td class="fi">sinä ole<span class="e">t</span></td><td class="fi">sinä <span class="e">et</span> ole</td></tr>
+    <tr><td class="fi">hän / se (he/she; spoken: it)</td><td class="fi">hän <span class="e">on</span></td><td class="fi">hän <span class="e">ei</span> ole</td></tr>
+    <tr><td class="fi">me (we)</td><td class="fi">me ole<span class="e">mme</span></td><td class="fi">me <span class="e">emme</span> ole</td></tr>
+    <tr><td class="fi">te (you, plural or polite)</td><td class="fi">te ole<span class="e">tte</span></td><td class="fi">te <span class="e">ette</span> ole</td></tr>
+    <tr><td class="fi">he / ne (they; spoken: ne)</td><td class="fi">he <span class="e">ovat</span></td><td class="fi">he <span class="e">eivät</span> ole</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">Spoken Finnish (puhekieli) in the book: <span class="fi">mä oon, sä oot, se on, me ollaan, te ootte, ne on</span>. Learn to recognise them; write the standard forms in the exam. Yes/no question with <em>olla</em>: <span class="fi">Oletko sinä opiskelija? Olen. / En ole.</span></p>
+  <p>Negative verb: <b class="fi">en, et, ei, emme, ette, eivät</b> + the verb stem. For <em>olla</em> the stem is <span class="fi">ole</span>.</p>
+
+  <h3>7. Verb type 1 (the exam table: ostaa, asua, istua)</h3>
+  <p>Take the infinitive, drop the last vowel to get the stem (<span class="fi">ostaa → osta-</span>), then add endings. <b>Hän</b> doubles the last stem vowel. <b>He</b> ends in <span class="fi">-vat</span> after back vowels and <span class="fi">-vät</span> after front vowels.</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>OSTAA, positive</th><th>ASUA, positive</th><th>ISTUA, negative</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">minä</td><td class="fi">osta<span class="e">n</span></td><td class="fi">asu<span class="e">n</span></td><td class="fi"><span class="e">en</span> istu</td></tr>
+    <tr><td class="fi">sinä</td><td class="fi">osta<span class="e">t</span></td><td class="fi">asu<span class="e">t</span></td><td class="fi"><span class="e">et</span> istu</td></tr>
+    <tr><td class="fi">hän</td><td class="fi">osta<span class="e">a</span></td><td class="fi">asu<span class="e">u</span></td><td class="fi"><span class="e">ei</span> istu</td></tr>
+    <tr><td class="fi">me</td><td class="fi">osta<span class="e">mme</span></td><td class="fi">asu<span class="e">mme</span></td><td class="fi"><span class="e">emme</span> istu</td></tr>
+    <tr><td class="fi">te</td><td class="fi">osta<span class="e">tte</span></td><td class="fi">asu<span class="e">tte</span></td><td class="fi"><span class="e">ette</span> istu</td></tr>
+    <tr><td class="fi">he</td><td class="fi">osta<span class="e">vat</span></td><td class="fi">asu<span class="e">vat</span></td><td class="fi"><span class="e">eivät</span> istu</td></tr>
+    </tbody>
+  </table></div>
+  <p>The book’s model verbs are <span class="fi">puhua</span> (back) and <span class="fi">kysyä</span> (front): <span class="fi">puhun, puhut, puhuu, puhumme, puhutte, puhuvat</span> / <span class="fi">kysyn, kysyt, kysyy, kysymme, kysytte, kysyvät</span>. <b>Te</b> is also the polite “you” for one person: <span class="fi">Te puhutte</span>. Spoken Finnish: <span class="fi">mä puhun, sä puhut, se puhuu, me puhutaan, te puhutte, ne puhuu</span>; negative <span class="fi">mä en puhu, me ei puhuta, ne ei puhu</span> (recognise only).</p>
+  <div class="box warn"><p><b>Common mistakes:</b> writing <em>asuu</em> for minä, forgetting that the negative needs <em>en/et/ei…</em> <u>plus</u> the bare stem (<span class="fi">en istun</span> is wrong), and writing <em>eivat</em> without the dots on <em>ä</em>.</p></div>
+
+  <div class="tool">
+    <span class="lbl">Try it: conjugate any type 1 verb</span>
+    <p class="muted">Type an infinitive such as <span class="fi">puhua</span>, <span class="fi">sanoa</span>, <span class="fi">rakastaa</span>, <span class="fi">kysyä</span>. This works for verbs without consonant changes (so not <span class="fi">nukkua</span> or <span class="fi">lukea</span>).</p>
+    <form id="cform"><label for="cverb" class="lbl">Verb</label><br>
+      <input type="text" id="cverb" value="puhua" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="submit">Conjugate</button></form>
+    <div class="tw" id="cout"></div>
+  </div>
+  <p><b>Practice verbs:</b></p>
+  <div class="chips"><span>puhua (speak)</span><span>asua (live)</span><span>ostaa (buy)</span><span>istua (sit)</span><span>sanoa (say)</span><span>rakastaa (love)</span><span>katsoa (watch)</span><span>maksaa (pay)</span><span>kysyä (ask)</span><span>osata (know how)</span></div>
+
+  <h3>8. Question words (your list, each once)</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Word</th><th>Meaning</th><th>Example</th><th>Answer</th></tr></thead>
+    <tbody>
+    <tr><td class="fi"><b>kuka</b></td><td>who</td><td class="fi">Kuka sinä olet?</td><td class="fi">Minä olen Olga.</td></tr>
+    <tr><td class="fi"><b>kuinka</b></td><td>how</td><td class="fi">Kuinka vanha sinä olet?</td><td class="fi">Minä olen 23 vuotta vanha.</td></tr>
+    <tr><td class="fi"><b>milloin</b></td><td>when</td><td class="fi">Milloin kurssi on?</td><td class="fi">Kurssi on maanantaina.</td></tr>
+    <tr><td class="fi"><b>mihin</b></td><td>where to</td><td class="fi">Mihin sinä menet?</td><td class="fi">Minä menen kotiin.</td></tr>
+    <tr><td class="fi"><b>missä</b></td><td>where (at)</td><td class="fi">Missä te asutte?</td><td class="fi">Me asumme Suomessa.</td></tr>
+    <tr><td class="fi"><b>miksi</b></td><td>why</td><td class="fi">Miksi et osta jäätelöä?</td><td class="fi">Koska minä säästän rahaa.</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>The book’s other question words</b> (not on your six, but chapter 2 grammar): <span class="fi">mikä</span> + <em>olla</em> (<span class="fi">Mikä päivä tänään on? Tänään on maanantai.</span>), <span class="fi">mitä</span> + other verbs (<span class="fi">Mitä kieltä sinä puhut? Minä puhun italiaa.</span>), <span class="fi">minkämaalainen</span> (<span class="fi">Minkämaalainen Pedro on? Hän on brasilialainen.</span>), <span class="fi">mistä</span> (<span class="fi">Mistä sinä olet kotoisin? Olen kotoisin Brasiliasta.</span>).</p>
+  <div class="box"><p><b>Word order:</b> question word + subject + verb. <span class="fi">Kuka sinä olet? Mitä kieltä te puhutte?</span></p>
+  <p><b>Yes/no question:</b> add <span class="fi">-ko/-kö</span> to the verb and put it first. <span class="fi">Oletko sinä opiskelija? – Olen. / En ole.</span> <span class="fi">Onko sinun äidinkieli espanja? – Ei, minä en puhu espanjaa.</span></p></div>
+  <p class="muted">The slide says question words are not graded as a separate grammar point, so aim for clear, correct questions. The mock exam’s exercise 6 gives you the six words above, so know them.</p>
+
+  <h3>9. Countries, nationalities, languages</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Country</th><th>From (Olen kotoisin…)</th><th>Nationality (Olen…)</th><th>Language (Puhun…)</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">Brasilia</td><td class="fi">Brasiliasta</td><td class="fi">brasilialainen</td><td class="fi">portugalia</td></tr>
+    <tr><td class="fi">Etelä-Afrikka</td><td class="fi">Etelä-Afrikasta</td><td class="fi">eteläafrikkalainen</td><td class="fi">englantia</td></tr>
+    <tr><td class="fi">Islanti</td><td class="fi">Islannista</td><td class="fi">islantilainen</td><td class="fi">islantia</td></tr>
+    <tr><td class="fi">Pakistan</td><td class="fi">Pakistanista</td><td class="fi">pakistanilainen</td><td class="fi">urdua</td></tr>
+    <tr><td class="fi">Suomi</td><td class="fi">Suomesta</td><td class="fi">suomalainen</td><td class="fi">suomea</td></tr>
+    <tr><td class="fi">Ruotsi</td><td class="fi">Ruotsista</td><td class="fi">ruotsalainen</td><td class="fi">ruotsia</td></tr>
+    <tr><td class="fi">Venäjä</td><td class="fi">Venäjältä</td><td class="fi">venäläinen</td><td class="fi">venäjää</td></tr>
+    <tr><td class="fi">Viro</td><td class="fi">Virosta</td><td class="fi">virolainen</td><td class="fi">viroa</td></tr>
+    <tr><td class="fi">Saksa</td><td class="fi">Saksasta</td><td class="fi">saksalainen</td><td class="fi">saksaa</td></tr>
+    <tr><td class="fi">Ranska</td><td class="fi">Ranskasta</td><td class="fi">ranskalainen</td><td class="fi">ranskaa</td></tr>
+    <tr><td class="fi">Englanti</td><td class="fi">Englannista</td><td class="fi">englantilainen</td><td class="fi">englantia</td></tr>
+    <tr><td class="fi">Espanja</td><td class="fi">Espanjasta</td><td class="fi">espanjalainen</td><td class="fi">espanjaa</td></tr>
+    <tr><td class="fi">Italia</td><td class="fi">Italiasta</td><td class="fi">italialainen</td><td class="fi">italiaa</td></tr>
+    <tr><td class="fi">Kiina</td><td class="fi">Kiinasta</td><td class="fi">kiinalainen</td><td class="fi">kiinaa</td></tr>
+    <tr><td class="fi">Intia</td><td class="fi">Intiasta</td><td class="fi">intialainen</td><td class="fi">hindiä</td></tr>
+    <tr><td class="fi">Japani</td><td class="fi">Japanista</td><td class="fi">japanilainen</td><td class="fi">japania</td></tr>
+    <tr><td class="fi">Egypti</td><td class="fi">Egyptistä</td><td class="fi">egyptiläinen</td><td class="fi">arabiaa</td></tr>
+    <tr><td class="fi">Turkki</td><td class="fi">Turkista</td><td class="fi">turkkilainen</td><td class="fi">turkkia</td></tr>
+    <tr><td class="fi">Kreikka</td><td class="fi">Kreikasta</td><td class="fi">kreikkalainen</td><td class="fi">kreikkaa</td></tr>
+    <tr><td class="fi">Yhdysvallat</td><td class="fi">Yhdysvalloista</td><td class="fi">amerikkalainen</td><td class="fi">englantia</td></tr>
+    </tbody>
+  </table></div>
+  <p>The book’s chapter 2 set is <b>Brasilia, Etelä-Afrikka, Suomi, Ranska, Kreikka, Islanti, Egypti, Venäjä, Pakistan</b> (also mentioned: Espanja, Italia, Johannesburg, São Paulo, Pietari). Learn those first; the rest are extras I added. Patterns from the book:</p>
+  <ul>
+    <li><b>Mistä sinä olet kotoisin?</b> → <span class="fi">olen kotoisin</span> + <span class="fi">-sta/-stä</span> (Suomesta, Egyptistä). Russia is the exception in the book: <span class="fi">Venäjältä</span>.</li>
+    <li><b>Minkämaalainen sinä olet?</b> → <span class="fi">-lainen/-läinen</span> (suomalainen, egyptiläinen). Spelling changes can occur (<span class="fi">Venäjä → venäläinen</span>, <span class="fi">Islanti → islantilainen</span>).</li>
+    <li><b>Mitä kieltä sinä puhut?</b> → <span class="fi">puhun</span> + <span class="fi">-a/-ä</span> (suomea, ranskaa, venäjää, arabiaa, urdua).</li>
+    <li>Also <span class="fi">Minun äidinkieli on englanti.</span> and <span class="fi">Puhun myös vähän espanjaa.</span> and <span class="fi">En puhu englantia.</span></li>
+  </ul>
+  <p class="muted">Nationalities and languages are written with a small letter; countries and cities with a capital.</p>
+</section>
+
+<section id="book">
+  <h2>Book extras: chapter 2 vocabulary and endings</h2>
+  <p>Things in <em>Suomen mestari 1</em>, chapter 2 that the slide does not list by name but that appear in the reading text and grammar boxes. Priority: the first two blocks. The rest is “know it if you have time”.</p>
+
+  <h3>Chapter 2 words from the book’s vocabulary list</h3>
+  <div class="chips"><span>minkämaalainen</span><span>loppua</span><span>muu</span><span>opiskelija</span><span>mennä (menen)</span><span>koti / kotiin</span><span>mutta</span><span>kioski</span><span>ostaa</span><span>jäätelö</span><span>maksaa</span><span>euro</span><span>ei</span><span>koska</span><span>säästää</span><span>raha</span><span>sitten</span><span>istua</span><span>puisto</span><span>puhua</span><span>nauraa</span><span>brasilialainen</span><span>venäläinen</span><span>mistä</span><span>kotoisin</span><span>Etelä-Afrikka</span><span>Ai jaa!</span><span>kieli</span><span>äidinkieli</span><span>englanti</span><span>myös</span><span>vähän</span><span>espanja</span><span>en puhu</span><span>Brasilia</span><span>portugali</span><span>Ai niin!</span><span>totta</span><span>ajaa</span><span>auto</span><span>bussipysäkki</span><span>missä</span><span>asua</span><span>Pohjois-Helsinki</span><span>bussi</span><span>ei … vaan</span><span>ensin</span><span>metro</span><span>nyt</span><span>tulla</span></div>
+  <p><b>Small words (pikkusanat):</b> <span class="fi">muut opiskelijat</span> (other students), <span class="fi">mutta</span> (but), <span class="fi">ja</span> (and), <span class="fi">koska</span> (because), <span class="fi">sitten</span> (then), <span class="fi">myös</span> (also), <span class="fi">ei … vaan</span> (not … but: <span class="fi">Minä en asu Helsingissä vaan Espoossa.</span>), <span class="fi">nyt</span> (now), <span class="fi">ensin</span> (first), <span class="fi">vähän</span> (a little).</p>
+  <div class="tw"><table>
+    <thead><tr><th>Reading text (chapter 2), key sentences</th><th>Meaning</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">Minkämaalainen sinä olet? Minä olen brasilialainen.</td><td>What nationality are you?</td></tr>
+    <tr><td class="fi">Mistä sinä olet kotoisin? Olen kotoisin Johannesburgista, Etelä-Afrikasta.</td><td>Where are you from?</td></tr>
+    <tr><td class="fi">Mitä kieltä sinä puhut? Minun äidinkieli on englanti, mutta puhun myös vähän espanjaa.</td><td>Which language do you speak?</td></tr>
+    <tr><td class="fi">Ei, minä en puhu espanjaa. Brasiliassa me puhumme portugalia.</td><td>No, I don’t speak Spanish. In Brazil we speak Portuguese.</td></tr>
+    <tr><td class="fi">Missä sinä asut? Asun Puistolassa. Menen kotiin bussilla 75.</td><td>Where do you live? I live in Puistola. I go home by bus 75.</td></tr>
+    <tr><td class="fi">Alex ja Pedro ostavat jäätelöä. Jäätelö maksaa 3 euroa. Olga ei osta jäätelöä, koska hän säästää rahaa.</td><td>Reading about the three students</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Place endings you see in chapter 2</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Question</th><th>Ending</th><th>Examples</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">Missä? (where at)</td><td class="fi">-ssa / -ssä</td><td class="fi">Suomessa, Brasiliassa, Helsingissä, Espoossa, puistossa</td></tr>
+    <tr><td class="fi">Mistä? (where from)</td><td class="fi">-sta / -stä</td><td class="fi">Suomesta, Egyptistä, Pakistanista, Johannesburgista</td></tr>
+    <tr><td class="fi">Mihin? (where to)</td><td class="fi">-n after the last vowel (kotiin), -lle (kioskille)</td><td class="fi">kotiin, kioskille (to the kiosk), bussipysäkille</td></tr>
+    <tr><td class="fi">By what?</td><td class="fi">-lla / -llä</td><td class="fi">autolla (by car), bussilla, metrolla</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">You don’t need to produce <em>mihin</em> forms freely; learn <span class="fi">kotiin</span> and a couple of sentences like <span class="fi">Minä menen kotiin.</span></p>
+
+  <h3>k-p-t gradation in place names (chapter 2 grammar)</h3>
+  <p>Some words change a consonant when an ending is added. It matters for <em>Asun …ssa</em> and <em>Olen kotoisin …sta</em>. Your slide doesn’t list it separately, so learn the examples below and don’t panic over the rest.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Strong → weak</th><th>Examples from the book</th></tr></thead>
+    <tbody>
+    <tr><td class="fi">kk → k, pp → p, tt → t</td><td class="fi">Afrikka → Afrikasta, Eurooppa → Euroopassa, konsertti → konsertin</td></tr>
+    <tr><td class="fi">k → (nothing), p → v, t → d</td><td class="fi">Turku → Turussa, leipä → leivällä, katu → kadulla</td></tr>
+    <tr><td class="fi">nk → ng, nt → nn, mp → mm, lt → ll, rt → rr</td><td class="fi">Helsinki → Helsingissä, Hollanti → Hollannissa, rumpu → rummun, ilta → illalla, parta → parran</td></tr>
+    <tr><td class="fi">No change: hk, sk, st, tk, or two vowels at the end</td><td class="fi">posti → postissa, matka → matkalla, vapaa → vapaassa, keittiö → keittiössä</td></tr>
+    </tbody>
+  </table></div>
+  <p>Useful for the exam: <span class="fi">Kreikka → Kreikasta (kk→k), Islanti → Islannista (nt→nn), Turkki → Turkista (kk→k), Turku → Turussa (k→nothing). No change: Egypti → Egyptistä (pt stays).</span></p>
+
+  <h3>Spoken Finnish and money (optional)</h3>
+  <p>Chapter 2 ends with a spoken dialogue at an ice-cream kiosk. The slide doesn’t mention it, so only skim it.</p>
+  <div class="chips"><span>Mitä tämä maksaa?</span><span>Se maksaa 3,50 €.</span><span>kolme euroa viisikymmentä senttiä</span><span>halpa ↔ kallis</span><span>Käteisellä vai kortilla?</span><span>Tarvitko kuittia?</span><span>Tässä, 10 euroa yhteensä</span><span>vanilja, suklaa, mansikka</span></div>
+</section>
+
+<section id="intro">
+  <h2>Introduce yourself (5 sentences)</h2>
+  <p>This is likely the biggest exercise, so write a safe version now and memorise it. Every sentence below uses only chapter 1–2 grammar. Swap the bold parts for your own details.</p>
+  <div class="box"><p class="fi" style="line-height:1.9">1. Hei! Minun nimi on <b>[nimi]</b>.<br>
+  2. Olen <b>[kaksikymmentäkaksi]</b> vuotta vanha.<br>
+  3. Olen kotoisin <b>[Intiasta]</b>. / Olen <b>[intialainen]</b>.<br>
+  4. Minun äidinkieli on <b>[englanti]</b>, mutta puhun myös vähän suomea.<br>
+  5. Asun <b>[Turussa]</b> ja opiskelen suomea.</p></div>
+  <p class="muted">Sentences 1 and 4 use the book’s wording (<span class="fi">Minun nimi on Alex</span>, <span class="fi">Minun äidinkieli on englanti</span>). <span class="fi">Minun nimeni on</span> is also correct Finnish, but the book’s form matches what you were taught.</p>
+  <details><summary>Spare sentences to swap in</summary><div class="ans fi" style="line-height:1.9">
+    Minun sukunimi on …<br>
+    Olen opiskelija.<br>
+    Olen eteläafrikkalainen / venäläinen / … (your nationality)<br>
+    En puhu espanjaa.<br>
+    Asun Turussa. / Asun Suomessa.<br>
+    En puhu ruotsia. (negative, shows off the negative verb)<br>
+    Hän on ystäväni. (He/she is my friend.)<br>
+    Kiitos! Näkemiin!
+  </div></details>
+  <p><b>Check before you hand it in:</b> five full sentences, capital letter at the start, a full stop at the end, every <em>ä</em> and <em>ö</em> with its dots, and an ending for each verb that matches its pronoun. Showing both a positive and a negative verb is a safe way to show you know the grammar.</p>
+</section>
+
+<section id="mock">
+  <h2>Mock exam: do it first, then check</h2>
+  <p>Write your own answer on paper before opening each one. These are model answers; other correct answers are possible.</p>
+
+  <details><summary>1. Greetings: replies</summary><div class="ans fi">
+    a) Hyvää päivää! → Hyvää päivää!<br>b) Anteeksi! → Ei se mitään.<br>c) Hauska tutustua! → Hauska tutustua myös! / Samoin!<br>d) Tässä on Maria. → Hei, Maria! / Hauska tutustua!<br>e) Terve! → Terve! / Moi!</div></details>
+
+  <details><summary>2. Vowel harmony</summary><div class="ans fi">
+    a) Egyptistä &nbsp; b) Turkua &nbsp; d) jäätelöä &nbsp; e) kreikkaa &nbsp; f) tiikeriä</div></details>
+
+  <details><summary>3. Numbers</summary><div class="ans fi">
+    a) yksi · b) neljäsataakolmekymmentä · c) tuhat yhdeksänsataa kuusikymmentäkahdeksan · d) viisikymmentäseitsemän · e) kaksituhatta yhdeksänsataa yhdeksänkymmentäneljä</div></details>
+
+  <details><summary>4. Dialogue (model)</summary><div class="ans fi" style="line-height:1.9">
+    A: Hei! Mitä kuuluu?<br>B: Hyvää, kiitos. Entä sinulle?<br>
+    A: Kiitos, hyvää. Kuka sinä olet?<br>B: Minun nimi on Ravi. Entä sinun?<br>
+    A: Olen Maria. Hauska tutustua!<br>B: Hauska tutustua! Mistä olet kotoisin?<br>
+    A: Olen kotoisin Suomesta. Entä sinä?<br>B: Olen kotoisin Intiasta. Puhutko englantia?<br>
+    A: Puhun vähän. Näkemiin!<br>B: Näkemiin!</div></details>
+
+  <details><summary>5. Verb table</summary><div class="ans fi">
+    ostaa: ostan, ostat, ostaa, ostamme, ostatte, ostavat<br>
+    asua: asun, asut, asuu, asumme, asutte, asuvat<br>
+    istua (negative): en istu, et istu, ei istu, emme istu, ette istu, eivät istu</div></details>
+
+  <details><summary>6. Four questions (model)</summary><div class="ans fi">
+    Kuka sinä olet? · Kuinka vanha sinä olet? · Missä sinä asut? · Miksi sinä et osta jäätelöä?<br>(Milloin kurssi on? and Mihin sinä menet? also work.)</div></details>
+
+  <details><summary>7. Introduce yourself</summary><div class="ans">Use the template in the previous section.</div></details>
+
+  <h3>Quick check: type the answer</h3>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<section id="tips">
+  <h2>Exam day</h2>
+  <div class="grid2">
+    <div>
+      <h3>Before</h3>
+      <ul>
+        <li>Sleep. A rested brain beats one more hour of study.</li>
+        <li>Skim only: verb tables, numbers, your 5 sentences.</li>
+        <li>Bring two pens and arrive early.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>During</h3>
+      <ul>
+        <li>Check the points of each exercise first and spend time in proportion.</li>
+        <li>Save 20–25% of the time for “introduce yourself” and the dialogue.</li>
+        <li>Write ä, ö and å clearly. Leave no blank lines: a guess can earn points.</li>
+        <li>In the listening task, write the letters as you hear them and don’t try to “fix” the name.</li>
+        <li>Re-read verb endings for pronoun match before handing in.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted">Passing needs 50% of the maximum. If one task goes badly, move on: points are spread across all exercises.</p>
+</section>
+
+<footer>Cross-checked against Suomen mestari 1, chapters 1–2 (pages 10–38). Chapter 2 exercises and the last pages were skimmed, not fully read. If your teacher’s materials differ from this page, follow your teacher.</footer>
+</div>
+
+<script>
+(function(){
+  var DAYS=[
+ {t:"Day 1",h:"Sounds, alphabet, vowel harmony, greetings",g:"Be able to read Finnish aloud and spell a name.",m:"90 min",items:[
+  ["Learn the Finnish letter names; spell your own name and three friends’ names aloud",
+   '<p>Say letters the Finnish way: <span class="fi">A aa · B bee · D dee · E ee · F äf · G gee · H <b>hoo</b> · I ii · J jii · K <b>koo</b> · L äl · M äm · N än · O oo · P pee · R är · S äs · T tee · U uu · V vee · Y yy · Ä ää · Ö öö</span></p><p>Stress is always on the first syllable. Doubled letters are long: listen for them.</p><p class="vid">Video: search YouTube for “Finnish alphabet pronunciation”.</p>',
+   ["Say A to Ö aloud once, following the audio","Circle the tricky ones on paper: H, K, Q, Y, Ä, Ö, R (rolled)","Spell your own name aloud in Finnish letter names","Spell three other names aloud, then write each as a friend reads it back"]],
+  ["Learn back, front and neutral vowels; do the vowel harmony exercise (Q2)",
+   '<p><b>Back:</b> a o u → ending with <b class="fi">a</b>. <b>Front:</b> ä ö y → ending with <b class="fi">ä</b>. <b>Neutral:</b> e i (only e/i in the word → <b class="fi">ä</b>).</p><p>Any back vowel in the word wins: <span class="fi">Turku → Turkua</span>. Compounds follow the last part.</p><p>Try: <span class="fi">talo__ssa/ssä · kylä__ssa/ssä · koulu__ssa/ssä · työ__ssa/ssä · tiikeri__a/ä</span></p>',
+   ["Recite the three vowel groups from memory","State the rule in your own words in one sentence","Do the 5 practice words above (answers: talossa, kylässä, koulussa, työssä, tiikeriä)","Do mock Q2 on paper without looking"]],
+  ["Learn the greetings table; cover the right column to test yourself (Q1)",
+   '<p class="fi">Hyvää päivää! → Hyvää päivää! · Anteeksi! → Ei se mitään. · Hauska tutustua! → Samoin! · Terve! → Terve!/Moi! · Mitä kuuluu? → Hyvää, kiitos. Entä sinulle? · Kiitos! → Ole hyvä!</p><p>Formal: <span class="fi">Hyvää päivää</span>. Casual: <span class="fi">Hei, Moi, Terve, Moikka</span>.</p>',
+   ["Cover the right column and answer all 7 aloud","Write the 7 replies on paper, check spelling and double letters","Sort greetings into formal and casual","Do mock Q1 a–e by hand"]],
+  ["Read the chapter 1 dialogue “Hei ja tervetuloa!” aloud twice; learn the ch. 1 phrases",
+   '<p>Phrases to own: <span class="fi">Moi moi · Heippa · Kiitos samoin · Ei kestä · Hyvää ruokahalua! · Kiitos ruoasta · Nähdään huomenna · Tervetuloa!</span></p><p>Core lines: <span class="fi">Kuka sinä olet? Minä olen Olga. · Minun nimi on Alex. · Tässä on Pedro. · Anteeksi, miten se kirjoitetaan?</span></p>',
+   ["Read the dialogue aloud, slowly, once","Read it again at natural speed","Write 3 phrases from memory and check them","Say each phrase and its English meaning without looking"]],
+  ["Practise short vs long sounds: tuli – tuuli, kisa – kissa, kuka – kukka",
+   '<p>Long = written double. A single letter can change the word:</p><p class="fi">tuli (fire) · tuuli (wind) · tulli (customs)<br>kisa (contest) · kissa (cat)<br>kuka (who) · kukka (flower)<br>tapa · tappa · kylä · kyllä</p>',
+   ["Say each pair aloud, holding the long sound","Have someone read one word of a pair; write which you heard","Write 3 pairs from memory"]],
+  ["Write the answers to Q1 and Q2 by hand, then check",
+   '<p>Use the mock exam section at the bottom. Open the answers only after you write yours. Mark every mistake and rewrite it three times.</p>',
+   ["Write Q1 and Q2 without notes","Check against the model answers","Rewrite each wrong answer three times"]]]},
+ {t:"Day 2",h:"Numbers and days of the week",g:"Write any number up to 2999 in letters.",m:"90 min",items:[
+  ["Memorise 0–10, then the teens (-toista) and tens (-kymmentä)",
+   '<p class="fi">0 nolla · 1 yksi · 2 kaksi · 3 kolme · 4 neljä · 5 viisi · 6 kuusi · 7 seitsemän · 8 kahdeksan · 9 yhdeksän · 10 kymmenen</p><p>Teens = number + <b class="fi">-toista</b> (<span class="fi">kolmetoista</span>). Tens = number + <b class="fi">-kymmentä</b> (<span class="fi">neljäkymmentä</span>).</p>',
+   ["Write 0–10 from memory","Write 11–19 from memory","Write 20, 30 … 90 from memory","Test yourself: 13, 18, 40, 70 in letters"]],
+  ["Learn sata/sataa and tuhat/tuhatta; write 430, 1968, 57, 2994 (Q3)",
+   '<p>100 = <span class="fi">sata</span>, 200+ = <span class="fi">kaksisataa</span>. 1000 = <span class="fi">tuhat</span>, 2000+ = <span class="fi">kaksituhatta</span>.</p><p>Join everything into one word, biggest first: <span class="fi">tuhat·yhdeksänsataa·kuusikymmentä·kahdeksan</span>.</p>',
+   ["Explain sata vs sataa and tuhat vs tuhatta","Write 430 and 57 without notes","Write 1968 and 2994 without notes","Check all four against the answers"]],
+  ["Write 10 random numbers on paper, convert to words, then check",
+   '<p>Pick numbers across ranges: two under 20, three between 20 and 99, three between 100 and 999, two between 1000 and 2999. Watch for 11–19 and the “-a” on hundreds and thousands.</p>',
+   ["Write 10 random numbers","Convert all 10 to words","Check against a number converter or the book","Redo the wrong ones tomorrow morning"]],
+  ["Learn the 7 days; write them from memory twice",
+   '<p class="fi">maanantai · tiistai · keskiviikko · torstai · perjantai · lauantai · sunnuntai</p><p>Small letters. Short forms: ma ti ke to pe la su. Weekend: <span class="fi">viikonloppu</span>.</p>',
+   ["Say the 7 days aloud in order","Write them from memory (round 1)","Write them from memory (round 2)","Mark weekdays vs weekend"]],
+  ["Learn tänään, eilen, huomenna, toissapäivänä, ylihuomenna and the -na ending",
+   '<p class="fi">toissapäivänä · eilen · tänään · huomenna · ylihuomenna</p><p>“On Monday” = day + <b class="fi">-na</b>: <span class="fi">maanantaina, perjantaina, viikonloppuna</span>.</p><p class="fi">Mikä päivä tänään on? Tänään on tiistai. · Milloin kurssi on? Kurssi on maanantaina.</p>',
+   ["Write the 5 time words with meanings","Convert all 7 days to the -na form","Answer: Mikä päivä tänään on? Milloin kurssi on?","Do the book’s weekday exercises (Huomenna on sunnuntai…)"]],
+  ["Practise the spelling dialogue: Anteeksi, miten se kirjoitetaan?",
+   '<p class="fi">– Anteeksi, miten se kirjoitetaan?<br>– Se kirjoitetaan P-Ä-I-V-I.</p><p>Practise with names that have double letters, ä/ö, and rolled R.</p>',
+   ["Read the dialogue aloud with a partner or alone as A and B","Spell 3 names aloud letter by letter","Write 3 names as someone spells them to you"]],
+  ["Spell numbers aloud: say a number and write it from listening",
+   '<p>Listening skill: hear → write. Record yourself or use a partner, mix numbers and names.</p>',
+   ["Have a partner (or a recording) say 5 numbers; write the digits","Say 5 numbers aloud and write them in letters","Check each answer"]]]},
+ {t:"Day 3",h:"Pronouns, olla, countries, nationalities, languages",g:"Say who you are, where you are from and what you speak.",m:"100 min",items:[
+  ["Learn minä, sinä, hän, me, te, he",
+   '<p class="fi">minä (I) · sinä (you) · hän (he/she) · me (we) · te (you pl. / polite) · he (they)</p><p>Spoken: <span class="fi">mä, sä, se, me, te, ne</span> (recognise only).</p>',
+   ["Say all six with meanings","Write them from memory","Match the 6 spoken forms to the standard forms"]],
+  ["Learn olla positive and negative (6 forms each); write both tables twice",
+   '<p class="fi">olen · olet · on · olemme · olette · ovat<br>en ole · et ole · ei ole · emme ole · ette ole · eivät ole</p><p>Yes/no question: <span class="fi">Oletko sinä opiskelija? – Olen. / En ole.</span></p>',
+   ["Write the positive table (round 1)","Write the negative table (round 1)","Write both again from memory (round 2)","Form 3 yes/no questions with -ko/-kö and answer them"]],
+  ["Learn the book’s 9 countries with ‘from’ form, nationality and language",
+   '<div class="tw"><table><thead><tr><th>Country</th><th>From</th><th>Nationality</th><th>Language</th></tr></thead><tbody><tr class="fi"><td>Brasilia</td><td>Brasiliasta</td><td>brasilialainen</td><td>portugalia</td></tr><tr class="fi"><td>Etelä-Afrikka</td><td>Etelä-Afrikasta</td><td>eteläafrikkalainen</td><td>englantia</td></tr><tr class="fi"><td>Suomi</td><td>Suomesta</td><td>suomalainen</td><td>suomea</td></tr><tr class="fi"><td>Ranska</td><td>Ranskasta</td><td>ranskalainen</td><td>ranskaa</td></tr><tr class="fi"><td>Kreikka</td><td>Kreikasta</td><td>kreikkalainen</td><td>kreikkaa</td></tr><tr class="fi"><td>Islanti</td><td>Islannista</td><td>islantilainen</td><td>islantia</td></tr><tr class="fi"><td>Egypti</td><td>Egyptistä</td><td>egyptiläinen</td><td>arabiaa</td></tr><tr class="fi"><td>Venäjä</td><td>Venäjältä</td><td>venäläinen</td><td>venäjää</td></tr><tr class="fi"><td>Pakistan</td><td>Pakistanista</td><td>pakistanilainen</td><td>urdua</td></tr></tbody></table></div><p>Add your own country from the full table in the cheat sheet.</p>',
+   ["Cover three columns; recall each from the country name (round 1)","Repeat for the other rows (round 2)","Learn your own country: from / nationality / language","Write 3 sentences: Olen kotoisin …, Olen …, Puhun …"]],
+  ["Read the chapter 2 text “Minkämaalainen sinä olet?” aloud twice and learn its vocabulary",
+   '<p>Core questions: <span class="fi">Minkämaalainen sinä olet? · Mistä sinä olet kotoisin? · Mitä kieltä sinä puhut? · Missä sinä asut?</span></p><p>Key words: <span class="fi">opiskelija, koti, jäätelö, maksaa, euro, koska, säästää, raha, äidinkieli, myös, vähän, totta</span></p>',
+   ["Read the text aloud, first slowly","Read again at normal speed","Learn the 12 key words above (cover English, recall)","Answer the four core questions about yourself aloud"]],
+  ["Draft your 5-sentence introduction (use the template)",
+   '<p>Template is in the “Introduce yourself” section: name, age, origin or nationality, language, where you live and study. Use only forms you have already learned.</p>',
+   ["Fill in the 5 sentences with your own details","Check every verb ending against its pronoun","Check ä, ö and double letters","Read it aloud twice"]],
+  ["Write the introduction again from memory without looking",
+   '<p>If you get stuck, peek at one sentence only, then continue. Count how many sentences you got right first time.</p>',
+   ["Write all 5 sentences without looking","Compare with your draft and fix errors","Aim for 4 of 5 correct; if not, repeat tomorrow"]]]},
+ {t:"Day 4",h:"Verb type 1, positive and negative",g:"Fill the exam’s verb table without mistakes.",m:"110 min",items:[
+  ["Learn the stem rule and the six endings; note hän doubles the vowel",
+   '<p>Infinitive → drop last vowel → stem (<span class="fi">puhua → puhu-</span>). Add: <b class="fi">-n, -t, (vowel doubled), -mme, -tte, -vat/-vät</b>.</p><p>Back vowels → <span class="fi">-vat</span>; front vowels → <span class="fi">-vät</span> (<span class="fi">kysyvät</span>).</p><p>Negative = <span class="fi">en/et/ei/emme/ette/eivät</span> + bare stem.</p>',
+   ["Write the six endings from memory","Explain why hän = stem + last vowel","Explain -vat vs -vät with one example each","Explain why en istun is wrong"]],
+  ["Conjugate ostaa, asua, istua positive and negative on paper (Q5)",
+   '<p>Stems: <span class="fi">osta- · asu- · istu-</span>. Write a six-row table for each verb, positive and negative.</p>',
+   ["ostaa positive and negative","asua positive and negative","istua positive and negative","Check against the cheat sheet; fix errors"]],
+  ["Conjugate 6 more verbs (puhua, sanoa, rakastaa, katsoa, maksaa, kysyä)",
+   '<p>Stems: <span class="fi">puhu- · sano- · rakasta- · katso- · maksa- · kysy-</span>. Remember kysyä is front-vowel (kysyvät).</p>',
+   ["Write puhua and sanoa (6 forms each)","Write rakastaa and katsoa","Write maksaa and kysyä","Say two forms from each verb aloud"]],
+  ["Use the conjugator tool only to check your answers",
+   '<p>Enter the infinitive in the tool above (Cheat sheets, section 7) and compare. Do not use it before writing your own answer.</p>',
+   ["Check all 9 verbs in the tool","List every mistake you made","Re-write the wrong forms three times"]],
+  ["Skim k-p-t gradation in place names",
+   '<p class="fi">Turku → Turussa · Kreikka → Kreikasta · Helsinki → Helsingissä · Islanti → Islannista · Egypti → Egyptistä (no change)</p><p>Only learn these examples plus your own city.</p>',
+   ["Read the gradation table in Book extras","Say the five examples aloud","Form Missä? and Mistä? for your own city or country"]],
+  ["Write 6 short sentences using different verbs and pronouns (include 2 negatives)",
+   '<p>Models: <span class="fi">Minä asun Turussa. · Sinä puhut suomea. · Hän ostaa jäätelöä. · Me emme istu puistossa. · He eivät puhu ruotsia.</span></p>',
+   ["Write 6 sentences with 6 different pronouns","Include at least 2 negatives","Check each verb ending against its pronoun","Read them aloud"]]]},
+ {t:"Day 5",h:"Questions, dialogue, polish the introduction",g:"Write a natural 5-line dialogue and 4 good questions.",m:"100 min",items:[
+  ["Learn the six question words and write one question for each (Q6)",
+   '<p class="fi">kuka (who) · kuinka (how) · milloin (when) · mihin (where to) · missä (where at) · miksi (why)</p><p>Order: question word + subject + verb.</p><p class="fi">Kuka sinä olet? · Kuinka vanha sinä olet? · Milloin kurssi on? · Mihin sinä menet? · Missä sinä asut? · Miksi sinä opiskelet suomea?</p>',
+   ["Write the six words with meanings from memory","Write one original question for each","Check word order","Pick the best 4 for the exam"]],
+  ["Learn the book’s question patterns",
+   '<p class="fi">Mikä päivä tänään on? · Mitä kieltä sinä puhut? · Mistä sinä olet kotoisin? · Minkämaalainen sinä olet? · Oletko sinä opiskelija? – Olen. / En ole.</p>',
+   ["Answer each question about yourself aloud","Write answers for 3 of them","Make the yes/no question with -ko/-kö for 2 new verbs"]],
+  ["Write two different A/B dialogues, with answers (Q4)",
+   '<p>Structure: greeting → how are you → names → origin → language → goodbye. 5 or more lines each. Use questions and replies from Day 1–3.</p>',
+   ["Write dialogue 1 (A and B, 5+ lines)","Write dialogue 2 with different details","Check each reply actually answers the question","Read one dialogue aloud with both voices"]],
+  ["Rewrite your introduction; swap in two spare sentences; read it aloud",
+   '<p>Spare sentences are under “Spare sentences to swap in” in the Introduce yourself section. Include one negative verb.</p>',
+   ["Rewrite the 5 sentences from memory","Swap in 2 spare sentences","Read aloud once at normal speed"]],
+  ["Redo the vocabulary exercises from chapters 1 and 2 in the book",
+   '<p>Prioritise exercises on greetings, numbers, nationalities, verbs, questions. Mark any exercise you got wrong and redo it tomorrow.</p>',
+   ["Finish chapter 1 vocabulary exercises","Finish chapter 2 vocabulary exercises","List 5 words you got wrong and write each three times"]]]},
+ {t:"Day 6",h:"Full mock exam under time pressure",g:"Do all 7 mock tasks cold, then fix every mistake.",m:"120 min",items:[
+  ["Do the whole mock exam in one go on paper, timed (about 60–75 minutes)",
+   '<p>Suggested split: Q1–Q3 15 min · Q4 dialogue 10 · Q5 verbs 10 · Q6 questions 5 · Q7 introduction 15 · spare 10. No notes.</p>',
+   ["Set a timer and start","Finish Q1–Q3","Finish Q4–Q6","Finish Q7 and re-read all endings"]],
+  ["Check with the model answers; mark each mistake",
+   '<p>Sort mistakes into: spelling, ending, vocabulary, word order. The biggest category tells you what to fix.</p>',
+   ["Score each exercise","Mark every mistake","Count mistakes per category"]],
+  ["Re-learn only what you got wrong; write each correction three times",
+   '<p>Do not restudy what you already know. Focus on the top category from the last step.</p>',
+   ["Rewrite each wrong item three times","Say the corrected form aloud","Retest the wrong items after a 10-minute break"]],
+  ["Listening practice",
+   '<p>Have someone read names, numbers and short sentences, or play audio from the book. Write what you hear exactly, doubled letters included.</p>',
+   ["Write 5 names as they are spelled","Write 5 numbers as words","Write 3 short sentences you hear","Check against the text"]],
+  ["Write your introduction one more time from memory",
+   '<p>This is likely the biggest exercise. Aim for five sentences, correct endings, all dots on ä and ö.</p>',
+   ["Write it without notes","Check against your saved version","Read it aloud once"]]]},
+ {t:"Day 7",h:"Light review and rest",g:"Walk in calm and confident.",m:"45 min",items:[
+  ["Skim the verb tables, olla and number rules once",
+   '<p>Read, do not write. 20 minutes maximum.</p>',
+   ["Skim the verb type 1 table","Skim olla positive and negative","Skim number building rules"]],
+  ["Recite your introduction and one dialogue aloud",
+   '<p>Once through each. If a sentence is shaky, say it three times and stop.</p>',
+   ["Recite the introduction","Recite one dialogue"]],
+  ["Pack pens, student card, anything the teacher asked for",
+   '<p>Two pens, student card, water. Check the room and time.</p>',
+   ["Pack the bag","Check the exam time and place"]],
+  ["Stop studying and sleep early",
+   '<p>A rested brain beats one more hour of study.</p>',
+   ["Close the books","Go to bed early"]]]}
+];
+  var KEY="fi-midterm-plan-v1",state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+  var host=document.getElementById("days"),total=0,subTotal=0,html="";
+  DAYS.forEach(function(d,di){
+    html+='<article class="day"><header><h3>'+d.t+': '+d.h+'</h3><span class="lbl">'+d.m+'</span></header><p class="goal">Goal: '+d.g+'</p><ul class="chk">';
+    d.items.forEach(function(it,ii){var id="d"+di+"i"+ii;total++;
+      html+='<li class="task"><label><input type="checkbox" class="main" data-id="'+id+'"'+(state[id]?' checked':'')+'><span>'+it[0]+'</span></label>';
+      html+='<details class="learn"><summary>Learn this &middot; '+it[2].length+' checkpoints</summary><div class="lc">'+it[1]+'<p class="lbl">Checkpoints</p><ul class="subs">';
+      it[2].forEach(function(sc,si){var sid=id+"s"+si;subTotal++;
+        html+='<li><label><input type="checkbox" class="sub" data-id="'+sid+'" data-p="'+id+'"'+(state[sid]?' checked':'')+'><span>'+sc+'</span></label></li>'});
+      html+='</ul></div></details></li>';
+    });
+    html+='</ul></article>';
+  });
+  host.innerHTML=html;
+  function upd(){var n=0,c=0;DAYS.forEach(function(d,di){d.items.forEach(function(it,ii){var id="d"+di+"i"+ii;if(state[id])n++;it[2].forEach(function(x,si){if(state[id+"s"+si])c++})})});
+    document.getElementById("barfill").style.width=(c/subTotal*100)+"%";
+    document.getElementById("progtxt").textContent=n+" of "+total+" tasks done · "+c+" of "+subTotal+" checkpoints"}
+  function sync(id){var subs=host.querySelectorAll('input.sub[data-p="'+id+'"]'),all=true;
+    subs.forEach(function(x){if(!x.checked)all=false});
+    state[id]=all;host.querySelector('input.main[data-id="'+id+'"]').checked=all}
+  host.addEventListener("change",function(e){var t=e.target;if(!t.dataset||!t.dataset.id)return;
+    if(t.classList.contains("main")){var id=t.dataset.id;state[id]=t.checked;
+      host.querySelectorAll('input.sub[data-p="'+id+'"]').forEach(function(x){x.checked=t.checked;state[x.dataset.id]=t.checked})}
+    else{state[t.dataset.id]=t.checked;sync(t.dataset.p)}
+    save();upd()});
+  upd();
+
+  /* conjugator */
+  function conj(v){
+    v=v.trim().toLowerCase();
+    if(!/^[a-zåäö]{3,}$/.test(v)||!/[aä]$/.test(v)||!/[aeiouyäö][aä]$/.test(v))return null;
+    var stem=v.slice(0,-1),front=/ä$/.test(v),last=stem.slice(-1);
+    return {
+      pos:[stem+"n",stem+"t",stem+last,stem+"mme",stem+"tte",stem+(front?"vät":"vat")],
+      neg:["en "+stem,"et "+stem,"ei "+stem,"emme "+stem,"ette "+stem,"eivät "+stem]};
+  }
+  var P=["minä","sinä","hän","me","te","he"];
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function render(){
+    var raw=document.getElementById("cverb").value,r=conj(raw),out=document.getElementById("cout");
+    if(!r){out.innerHTML='<p class="muted">Enter a type 1 infinitive that ends in two vowels, such as puhua, sanoa, kysyä.</p>';return}
+    var h='<table><thead><tr><th></th><th>Positive</th><th>Negative</th></tr></thead><tbody>';
+    for(var i=0;i<6;i++)h+='<tr><td class="fi">'+P[i]+'</td><td class="fi">'+r.pos[i]+'</td><td class="fi">'+r.neg[i]+'</td></tr>';
+    out.innerHTML=h+'</tbody></table>';
+  }
+  document.getElementById("cform").addEventListener("submit",function(e){e.preventDefault();render()});
+  render();
+
+  /* quiz */
+  var Q=[
+   ["Minä (asua, positive)",["asun"]],["Hän (ostaa, positive)",["ostaa"]],["He (puhua, positive)",["puhuvat"]],
+   ["Te (istua, negative)",["ette istu"]],["Me (olla, positive)",["olemme"]],["Hän (olla, negative)",["ei ole"]],
+   ["Vowel harmony: Olen kotoisin Ranska__",["ranskasta"].map(function(){return"sta"}),"Type the ending (sta or stä)"],
+   ["Number 57 in Finnish",["viisikymmentäseitsemän"]],["Number 100 in Finnish",["sata"]],
+   ["Say ‘Tuesday’ in Finnish",["tiistai"]],["‘On Friday’ in Finnish",["perjantaina"]],["‘Yesterday’ in Finnish",["eilen"]],
+   ["Minä (puhua, negative)",["en puhu"]],["Me (puhua, positive)",["puhumme"]],["He (kysyä, positive)",["kysyvät"]],
+   ["Spell the letter H (how Finns say it)",["hoo"]],["Olen kotoisin Suome__ (sta or stä)",["sta"]],["Kuinka vanha sinä olet? Minä olen 23 vuotta ___",["vanha"]],["Reply to ‘Anteeksi!’",["ei se mitään","ei haittaa"]],
+   ["Question word for ‘why’",["miksi"]]
+  ];
+  var qh="";
+  Q.forEach(function(q,i){qh+='<div class="q"><label for="q'+i+'">'+esc(q[0])+'</label><input type="text" id="q'+i+'" data-i="'+i+'" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="button" class="chkbtn" data-i="'+i+'" style="font:inherit;padding:5px 10px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer">Check</button><span class="r" id="r'+i+'" aria-live="polite"></span></div>'});
+  document.getElementById("quiz").innerHTML=qh;
+  document.getElementById("quiz").addEventListener("click",function(e){
+    var b=e.target.closest(".chkbtn");if(!b)return;
+    var i=+b.dataset.i,v=document.getElementById("q"+i).value.trim().toLowerCase().replace(/\s+/g," "),r=document.getElementById("r"+i);
+    var ok=Q[i][1].indexOf(v)>-1;
+    r.className="r "+(ok?"ok":"no");r.textContent=ok?"Correct":"Answer: "+Q[i][1][0];
+  });
+})();
+</script>
+
+</body></html>
